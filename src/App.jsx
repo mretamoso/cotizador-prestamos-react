@@ -2,7 +2,7 @@
 function App() {
 
   return (
-    <h1>hola soy el reactivo</h1>
+    <h1 className="text-6xl font-extrabold">hola soy el reactivo</h1>
   )
 }
 
