@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import HeaderComponent from "./components/HeaderComponent"
 import ButtonComponent from "./components/ButtonComponent"
 import { formatearDinero, calcularTotalPagar } from "./helpers";
@@ -6,6 +6,12 @@ import { formatearDinero, calcularTotalPagar } from "./helpers";
 function App() {
   const [cantidad, setCantidad] = useState(10000)
   const [meses, setMeses] = useState(6)
+  const [total, setTotal] = useState(calcularTotalPagar(cantidad, meses))
+
+  useEffect(() => {
+    const resultadoTotalPagar = calcularTotalPagar(cantidad, meses)
+    setTotal(resultadoTotalPagar)
+  }, [cantidad, meses])
 
   //variables normales
   const MIN = 0;
@@ -90,7 +96,7 @@ function App() {
           {meses} Meses
         </p>
         <p className="text-xl text-gray-500 text-center font-bold">
-          Total a pagar
+          {formatearDinero(total)} Total a pagar
         </p>
         <p className="text-xl text-gray-500 text-center font-bold">
           Mensuales
