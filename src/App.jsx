@@ -4,7 +4,8 @@ import ButtonComponent from "./components/ButtonComponent"
 import { formatearDinero } from "./helpers";
 
 function App() {
-  const [cantidad, setCantidad] = useState(10000);
+  const [cantidad, setCantidad] = useState(10000)
+  const [meses, setMeses] = useState(6)
 
   //variables normales
   const MIN = 0;
@@ -70,6 +71,8 @@ function App() {
 
       <select
         className="mt-5 w-full p-2 bg-white border border-gray-300 rounded-lg text-center text-xl font-bold text-gray-500"
+        value={meses}
+        onChange={e => setMeses(+e.target.value)}
       >
         <option value="6">6 meses</option>
         <option value="12">12 meses</option>
