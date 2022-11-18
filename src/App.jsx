@@ -1,7 +1,7 @@
 import { useState } from "react"
 import HeaderComponent from "./components/HeaderComponent"
 import ButtonComponent from "./components/ButtonComponent"
-import { formatearDinero } from "./helpers";
+import { formatearDinero, calcularTotalPagar } from "./helpers";
 
 function App() {
   const [cantidad, setCantidad] = useState(10000)
