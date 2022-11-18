@@ -1,6 +1,7 @@
 import { useState } from "react"
 import HeaderComponent from "./components/HeaderComponent"
 import ButtonComponent from "./components/ButtonComponent"
+import { formatearDinero } from "./helpers";
 
 function App() {
   const [cantidad, setCantidad] = useState(10000);
@@ -23,7 +24,7 @@ function App() {
     }
     setCantidad(valor)
   }
-  
+
   function handleClickIncremento() {
     const valor = cantidad + STEP
 
@@ -60,7 +61,8 @@ function App() {
         step={STEP}
         value={cantidad}
       />
-      <p className="text-center my-10 text-5xl font-extrabold text-indigo-600">{cantidad}</p>
+      <p className="text-center my-10 text-5xl font-extrabold text-indigo-600">
+        {formatearDinero(cantidad)}</p>
     </div>
   )
 }
